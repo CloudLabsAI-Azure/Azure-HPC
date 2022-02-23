@@ -216,7 +216,16 @@ An az-hop environment is defined by using a configuration file named **config.ym
      ```bash
      az login
      ```
-     - Now note the code displayed in the output of the command, open another tab in the browser within your lab VM, navigate to [the Microsoft Device Login page](https://microsoft.com/devicelogin), enter the code, and select **Next**.
+     - Note the code displayed in the output of the command, open another tab in the browser within your lab VM, navigate to [the Microsoft Device Login page](https://microsoft.com/devicelogin), enter the code, and select **Next**.
+
+        ![](../main/media/code.png)
+     - Now click on **<inject key="AzureAdUserEmail" enableCopy="false"></inject>**
+
+        ![](../main/media/pickaccount.png)
+       
+     - On **Are you trying to sign in to Microsoft Azure CLI** page, click on **Continue** to sign in into Azure Portal.
+
+        ![](../main/media/continue.png)
 
 3. Review the generated list of resources and then run the following command to trigger the deployment of the Azure HPC OnDemand Platform infrastructure:
 
