@@ -16,6 +16,7 @@ January 2022
 
 - [Azure HPC OnDemand Platform lab guide](#azure-hpc-on-demand-platform-lab-guide)
    - [Requirements](#requirements)
+      - [Getting Started](https://github.com/CloudLabsAI-Azure/Azure-HPC/blob/main/README.md#getting-started)
       - [Exercise 1: Prepare for implementing Azure HPC OnDemand Platform environment](#exercise-1-prepare-for-implementing-azure-hpc-ondemand-platform-environment)
       - [Task 1: Deploy Azure Bastion](#task-2-deploy-azure-bastion)
    - [Exercise 2: Implement Azure HPC OnDemand Platform infrastructure](#exercise-2-implement-azure-hpc-ondemand-platform-infrastructure)
