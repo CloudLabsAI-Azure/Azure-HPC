@@ -232,10 +232,8 @@ An az-hop environment is defined by using a configuration file named **config.ym
    ```bash
    ./build.sh -a apply
    ```
-3. Note the code displayed in the output of the command, open another tab in the browser within your lab VM, navigate to [the Microsoft Device Login page](https://microsoft.com/devicelogin), enter the code, and select **Next**.
 
-
-   > **Note**: Wait for the deployment to complete. This should take about 20 minutes. 
+     > **Note**: Wait for the deployment to complete. This should take about 20 minutes. 
 
 ### Task 3: Build images
 
