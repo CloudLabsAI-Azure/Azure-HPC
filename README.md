@@ -182,7 +182,7 @@ An az-hop environment is defined by using a configuration file named **config.ym
 3. Review the content of the **config.yml** file and note that it includes the following settings:
 
    - **location**: Update the location with the name of your resource group location.
-   - **resource_group**: Update the resource group name as **Azure-hpc-<inject key="DeploymentID" enableCopy="false" />**
+   - **resource_group**: Update the resource group name as **Azure-hpc**
    - **use_existing_rg** : Update the value to **true** to use the existing resource group.
    - **anf**: configuration properties of Azure NetApp Files resources
    - **admin_user**: the name of the admin user account (its random password is auto-generated and stored in the Azure Key vault provisioned as part of the deployment
