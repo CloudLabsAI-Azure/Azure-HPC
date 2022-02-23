@@ -209,8 +209,16 @@ An az-hop environment is defined by using a configuration file named **config.ym
      ```bash
      sudo su
      ```
-   
-2. Review the generated list of resources and then run the following command to trigger the deployment of the Azure HPC OnDemand Platform infrastructure:
+1. If you get an error stating **Please run 'az login' to setup account.**, follow the below steps:
+
+     - Run the below command to login into **Azure Portal**
+
+     ```bash
+     az login
+     ```
+     - Now note the code displayed in the output of the command, open another tab in the browser within your lab VM, navigate to [the Microsoft Device Login page](https://microsoft.com/devicelogin), enter the code, and select **Next**.
+
+3. Review the generated list of resources and then run the following command to trigger the deployment of the Azure HPC OnDemand Platform infrastructure:
 
    ```bash
    ./build.sh -a apply
