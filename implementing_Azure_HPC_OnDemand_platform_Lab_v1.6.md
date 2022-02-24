@@ -173,9 +173,10 @@ You can define an az-hop environment by using a configuration file named **confi
 1. On the lab computer, in the browser window displaying the Azure portal, within the SSH session to the Azure VM, run the following commands to copy **config.tpl.yml** to **config.yml**:
 
    ```bash
-   cd ..
-   cd az-hop
-   cp config.tpl.yml config.yml
+  cd
+  git clone --recursive https://github.com/Azure/az-hop.git
+  cd az-hop
+  cp config.tpl.yml config.yml
    ```
 
 1. Open the **config.yml** file using your preferred editor such as Nano or vi:
