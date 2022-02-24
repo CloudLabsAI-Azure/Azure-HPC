@@ -104,7 +104,7 @@ In this exercise, you will set up an Azure VM that will be used for the deployme
    |Setting|Value|
    |---|---|
    |Subscription|the name of the Azure subscription you are using in this lab|
-   |Resource group|**Azure-hpc-<inject key="DeploymentID" enableCopy="false" />**|
+   |Resource group|**Azure-hpc**|
    |Name|**azure-hpc-bastion**|
    |Region|**Use the same region as your Resource group**|
    |Tier|**Basic**|
