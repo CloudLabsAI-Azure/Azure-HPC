@@ -160,23 +160,18 @@ An az-hop environment is defined by using a configuration file named **config.ym
 
 1. On the lab VM, within the SSH session, run the following commands to copy **config.tpl.yml** to **config.yml**
 
-   ```bash
-   sudo cp config.tpl.yml config.yml
-   ```
-   
-   >**Note:** If you get an error stating **No such file or directory**, run the below commands and re-run the step-1:
-
-      ```bash
-      cd ..
-      cd az-hop
-      ```
-     
+```bash
+ cd
+ git clone --recursive https://github.com/Azure/az-hop.git
+ cd az-hop
+ cp config.tpl.yml config.yml
+ ```
       
 
 2. Open the **config.yml** file using your preferred editor (such as Nano or vi)
 
    ```bash
-   sudo vi config.yml
+   nano vi config.yml
    ```
 
 3. Review the content of the **config.yml** file and note that it includes the following settings:
