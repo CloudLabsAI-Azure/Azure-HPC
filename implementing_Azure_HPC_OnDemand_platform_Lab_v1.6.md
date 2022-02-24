@@ -44,7 +44,7 @@ February 2022
     - [Task 3: View the results of the OPM job by using ResInsight](#task-3-view-the-results-of-the-opm-job-by-using-resinsight)
   - [Exercise 7: Deprovision Azure HPC OnDemand Platform environment](#exercise-5-deprovision-azure-hpc-ondemand-platform-environment)
     - [Task 1: Terminate the cluster](#task-1-terminate-the-cluster)
-    - [Task 2: Deprovision the Azure resources](#task-2-deprovision-the-azure-resources)
+  
 
 <!-- /TOC -->
 
@@ -994,13 +994,4 @@ In this exercise, you will deprovision the Azure HPC OnDemand Platform lab envir
 
    > ![Note]: Ensure that all nodes and scaleset are deleted before you proceed to the next step.
 
-### Task 2: Deprovision the Azure resources
 
-1. On the lab computer, switch to the browser window displaying the Azure portal and start a Bash session in **Cloud Shell**.
-1. From the Bash session on the **Cl**oud Shell pane, run the following command to initiate the deprovisioning of the Azure HPC OnDemand Platform infrastructure you created and evaluated in this lab :
-
-   ```bash
-   az group delete --name azhop --yes
-   ```
-
-   > ![Note]: Wait for the resource deprovisioning to complete. This should take about 20 minutes.
