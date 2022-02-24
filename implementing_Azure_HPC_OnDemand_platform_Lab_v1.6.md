@@ -159,7 +159,7 @@ In this exercise, you will set up an Azure VM that you will use for deployment o
 
      ![](../main/media/connectbastion.png)
 
->**Note:**  In case you are getting error while conencting to vm using bastion, please click on blocked pop-up and select **Always Allow pop-ups and redirects from https://portal.azure.com** .
+>**Note:**  In case you are getting error while connecting to vm using bastion, please click on blocked pop-up and select **Always Allow pop-ups and redirects from https://portal.azure.com** .
 
 ![](https://raw.githubusercontent.com/CloudLabsAI-Azure/Azure-HPC/main/media/bastion-02.png)
 
