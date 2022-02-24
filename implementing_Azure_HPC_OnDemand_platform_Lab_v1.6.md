@@ -186,7 +186,10 @@ You can define an az-hop environment by using a configuration file named **confi
    ```
 
 3. Review the content of the **config.yml** file and note that it includes the following settings:
+>**Note:**  Please run the below command to retrieve the location: .
 
+    az account list-locations -o table
+    
    - **location**: Update the location with the name of your resource group location.
    - **resource_group**: Update the resource group name as Azure-hpc.
    - **use_existing_rg** : Update the value to **true** to use the existing resource group.
@@ -204,6 +207,24 @@ You can define an az-hop environment by using a configuration file named **confi
 
 ### Task 2: Deploy Azure HPC OnDemand Platform infrastructure
 
+1.  **Please run 'az login' to setup account.**, follow the below steps:
+
+     - Run the below command to login into **Azure Portal**
+
+     ```bash
+     az login
+     ```
+     - Note the code displayed in the output of the command, open another tab in the browser within your lab VM, navigate to [the Microsoft Device Login page](https://microsoft.com/devicelogin), enter the code, and select **Next**.
+
+        ![](../main/media/code.png)
+     - Now click on **<inject key="AzureAdUserEmail" enableCopy="false"></inject>**
+
+        ![](../main/media/pickaccount.png)
+       
+     - On **Are you trying to sign in to Microsoft Azure CLI** page, click on **Continue** to sign in into Azure Portal.
+
+        ![](../main/media/continue.png)
+        
 1. Within the SSH session to the Azure VM, run the following command to generate a Terraform deployment plan that includes the listing of all resources to be provisioned:
 
    ```bash
