@@ -22,7 +22,21 @@ In this exercise, you will install and configure Spack from Code Server, as docu
 
 ### Task 1: Create a compute node
 
-1. On the lab computer, in the browser window, switch to the tab displaying the **Azure HPC On-Demand Platform** portal, select the **Interactive Apps** menu, and in the drop-down menu, select **Code Server**.
+1. Open a new tab in your browser, navigate to the **FQDN** of the **Azure HPC On-Demand Platform portal** which is provided in the lab environment details page.
+
+     ![](../main/media/ondemandsite.png)
+     
+1. When you are prompted to sign in use the credentials provided in the lab environment details page:
+
+    - **Username**: Enter the **HPC Username** provided in your environment details page. 
+    - **Password** : Enter the **HPC Password** provided in your environment details page.
+
+   > **Note**: You will be presented with the **Azure HPC On-Demand Platform** dashboard. Review its interface, starting with the top level menu, which provides access to **Apps**, **Files**, **Jobs**, **Clusters**, **Interactive Apps**, **Monitoring**, and **My Interactive Sessions** menu items.
+
+     ![](../main/media/ondemand%20signin.png)
+
+
+1. In the **Azure HPC On-Demand Platform** portal, select the **Interactive Apps** menu, and in the drop-down menu, select **Code Server**.
 
    > ![Note]: This will open another browser tab displaying the Code Server launching page.
 
@@ -55,7 +69,7 @@ In this exercise, you will install and configure Spack from Code Server, as docu
 
 ### Task 2: Install Spack
 
-1. On the lab computer, in the browser window displaying the Code Server, wait until the prompt **[clusteradmin@hb120v3-1 ~]$** appears within the Terminal pane.
+1. In the browser window displaying the Code Server, wait until the prompt **[clusteradmin@hb120v3-1 ~]$** appears within the Terminal pane.
 1. In the Terminal pane, run the following commands to install and configure Spack:
 
    ```bash
@@ -115,7 +129,7 @@ Duration: 60 minutes
 
 ### Task 1: Build OPM
 
-1. On the lab computer, in the browser window displaying the Code Server, in the Terminal pane, from the prompt **[clusteradmin@hb120v3-1 ~]$**, run the following command to load Spack modules
+1. In the browser window displaying the Code Server, in the Terminal pane, from the prompt **[clusteradmin@hb120v3-1 ~]$**, run the following command to load Spack modules
 
    ```bash
    module use /usr/share/Modules/modulefiles
@@ -245,7 +259,7 @@ Duration: 60 minutes
 
 ### Task 2: Retrieve test data and run a flow job
 
-1. On the lab computer, in the browser window displaying the Code Server, in the Terminal pane, from the prompt **[clusteradmin@hb120v3-1 ~]$**, run the following commands to download test data:
+1. In the browser window displaying the Code Server, in the Terminal pane, from the prompt **[clusteradmin@hb120v3-1 ~]$**, run the following commands to download test data:
 
    ```bash
    cd /lustre
@@ -260,7 +274,7 @@ Duration: 60 minutes
    cp ~/azurehpc/experimental/azhop/opm/run_opm.sh ~
    ```
 
-1. On the lab computer, in the browser window displaying the Code Server, in the Terminal pane, from the prompt **[clusteradmin@hb120v3-1 ~]$**, open the newly created copy of the **run_opm.sh** file in a text editor, make the following changes, and close it saving the changes:
+1. In the browser window displaying the Code Server, in the Terminal pane, from the prompt **[clusteradmin@hb120v3-1 ~]$**, open the newly created copy of the **run_opm.sh** file in a text editor, make the following changes, and close it saving the changes:
 
    - modify the input file path (`INPUT`) by replacing the entry `~/opm-data/norne` with `/lustre/clusteradmin/opm-data/norne`)
    - modify the compute node configuration by replacing the entry `select=1:ncpus=40:mpiprocs=40:slot_type=hc44rs` with `select=1:ncpus=120:mpiprocs=60:slot_type=hb120v2`
@@ -347,7 +361,7 @@ Duration: 60 minutes
    popd
    ```
 
-1. On the lab computer, in the browser window displaying the Code Server, in the Terminal pane, from the prompt **[clusteradmin@hb120v3-1 ~]$**, run the following command to submit the job referenced in the **~/run_opm.sh** file:
+1. In the browser window displaying the Code Server, in the Terminal pane, from the prompt **[clusteradmin@hb120v3-1 ~]$**, run the following command to submit the job referenced in the **~/run_opm.sh** file:
 
    ```bash
    qsub ~/run_opm.sh 
@@ -462,10 +476,10 @@ Duration: 60 minutes
 
 ### Task 3: View the results of the OPM job by using ResInsight
 
-1. On the lab computer, in the browser window, switch back to the **Azure HPC On-Demand Platform** portal and, in the **Interactive Apps** section, select **Remote Desktop**.
+1. In the browser window, switch back to the **Azure HPC On-Demand Platform** portal and, in the **Interactive Apps** section, select **Remote Desktop**.
 1. On the **Remote Desktop** launching page, in the **Session target** drop-down list, ensure that **With GPU** entry is selected, in the **Maximum duration of your remote session** list, enter **1**,  and then select **Launch**.
 
-   > ![Note]: In case your subscription does not have sufficient number of quotas for the **Standard_NV6** SKU, choose the **Without GPU** entry instead.
+   > ![Note]: In your subscription, you does not have sufficient number of quotas for the **Standard_NV6** SKU, so please choose the **Without GPU** entry instead.
 
    > ![Note]: This will initiate provisioning of a compute node of the type you specified. Note that this creates a new job, which **Queued** status is displayed on the same page.
 
@@ -518,7 +532,7 @@ In this exercise, you will deprovision the Azure HPC OnDemand Platform lab envir
 
 ### Task 1: Terminate the cluster
 
-1. On the lab computer, in the browser window, navigate to the **Azure CycleCloud for Azure HPC On-Demand Platform** portal.
+1. In the browser window, navigate to the **Azure CycleCloud for Azure HPC On-Demand Platform** portal.
 1. On the **pbs1** page, select **Terminate** and, when prompted for confirmation, select **OK**.
 1. Monitor the progress of terminating the cluster.
 
