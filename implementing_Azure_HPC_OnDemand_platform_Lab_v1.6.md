@@ -179,13 +179,13 @@ You can define an az-hop environment by using a configuration file named **confi
  cp config.tpl.yml config.yml
  ```
 
-1. Open the **config.yml** file using your preferred editor such as Nano or vi:
+2. Open the **config.yml** file using your preferred editor such as Nano or vi:
 
    ```bash
-   vi config.yml
+   nano config.yml
    ```
 
-1. Review the content of the **config.yml** file and note that it includes the following settings:
+3. Review the content of the **config.yml** file and note that it includes the following settings:
 
    - **location**: Update the location with the name of your resource group location.
    - **resource_group**: Update the resource group name as Azure-hpc.
@@ -200,7 +200,7 @@ You can define an az-hop environment by using a configuration file named **confi
    - **images**: The list of images that will be available for deployment of compute cluster nodes and their respective configuration.
    - **queues**: The list of node arrays of CycleCloud and their respective configuration.
 
-1. If needed, change the name of the target Azure region set in the **config.yml** file to the one you are using in this lab, save the change, and then close the file.
+4. If needed, change the name of the target Azure region set in the **config.yml** file to the one you are using in this lab, save the change, and then close the file.
 
 ### Task 2: Deploy Azure HPC OnDemand Platform infrastructure
 
