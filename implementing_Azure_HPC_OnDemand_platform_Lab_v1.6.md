@@ -77,11 +77,39 @@ To complete this lab, you must verify that your account has sufficient permissio
 1. On the subscription blade, select **Access control (IAM)**. 
 1. On the **Check access** tab, select the **View my access** button, and in the listing of role assignments, verify that your user account has the Owner role assigned to it.
 
+### Getting Started
+
+1. In the virtual machine (VM) on the left, click on the Azure Portal as shown below.
+
+   ![Azure Portal](https://raw.githubusercontent.com/CloudLabsAI-Azure/AIW-Azure-Network-Solutions/main/media/gs4.png)
+   
+2. When you click on Azure portal, the edge browser welcome screen will come up, select Start without your data.
+
+   ![Start without data](../main/media/start%20without%20data.png)
+   
+3. On the next window, click on Confirm and start browsing.
+
+   ![](../main/media/confirmandstart.png)
+   
+4. Now, you will see two tabs in the edge browser, close the first tab named with Microsoft Edge.
+
+5. On the Sign in to Microsoft Azure tab you will see a login screen, in that enter the following email/username and then click on Next.
+
+    * Email/Username: <inject key="AzureAdUserEmail"></inject>
+   
+     ![](../main/media/odl.png)
+     
+1. Now enter the following password and click on **Sign in**.
+
+   * Password: <inject key="AzureAdUserPassword"></inject>
+   
+     ![](../main/media/password.png)
+
 
 
 ## Exercise 1: Prepare for implementing the Azure HPC OnDemand Platform environment
 
-Duration: 40 minutes
+Duration: 10 minutes
 
 In this exercise, you will set up an Azure VM that you will use for deployment of the lab environment.
 
@@ -111,6 +139,29 @@ In this exercise, you will set up an Azure VM that you will use for deployment o
 
    > ![Note]: Wait for the deployment to complete before you proceed to the next exercise. The deployment might take about five minutes to complete.
 
+### Task 2: Connect to the VM
+
+> **Note**: Ensure that your browser has the pop-up functionality enabled before you attempt to connect via Azure Bastion.
+
+1. Type **Virtual machines (1)** in the search box of **Azure Portal** and select **Virtual machines (2)**.
+
+     ![](../main/media/virtual%20machines.png)
+     
+1. On the **Virtual machines** page, select **azcli-vm0**.
+
+    ![](../main/media/selectvm.png)
+    
+1. On the **azcli-vm0** blade, click on **Connect (1)** and select **Bastion (2)** from the drop-down menu.
+
+   ![](../main/media/connect.png) 
+   
+1. On **Bastion** page, enter the below details:
+
+    - **User name** : **azureadm (1)**
+    - **Password** : **Password.1!! (2)**
+    - Click on **Connect (3)**
+
+     ![](../main/media/connectbastion.png)
 
 
 ## Exercise 2: Implement Azure HPC OnDemand Platform cloud infrastructure
