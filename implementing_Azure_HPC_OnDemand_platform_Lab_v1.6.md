@@ -509,6 +509,8 @@ In this exercise, you will review the main features of the Azure HPC OnDemand Pl
 
    > ![Note]: This will automatically open another web browser tab displaying the output of the job.
 
+   > ![Note]: Lab 01 is completed now , to proceed with  Lab 02 please continue from Exercise 5.
+
 ## Exercise 5: Set up Spack 
 
 Duration: 30 minutes
