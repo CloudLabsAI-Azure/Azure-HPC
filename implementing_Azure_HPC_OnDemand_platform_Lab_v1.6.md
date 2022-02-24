@@ -240,7 +240,7 @@ You can define an az-hop environment by using a configuration file named **confi
    ./build.sh -a apply
    ```
 
-   > ![Note]: Wait for the deployment to complete. This should take about 20 minutes. After the deployment completes, you should see the message stating **Apply complete! Resources: 124 added, 0 changed, 0 destroyed.**
+   > ![Note]: Wait for the deployment to complete. This should take about 20 minutes. After the deployment completes, you should see the message stating **Apply complete! Resources: 121 added, 0 changed, 0 destroyed.**
 
 ### Task 3: Build images
 
