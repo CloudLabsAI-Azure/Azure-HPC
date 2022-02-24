@@ -175,6 +175,9 @@ An az-hop environment is defined by using a configuration file named **config.ym
    ```
 
 3. Review the content of the **config.yml** file and note that it includes the following settings:
+ >**Note:**  Please run the below command to retrieve the location: .
+
+    az account list-locations -o table
 
    - **location**: Update the location with the name of your resource group location.
    - **resource_group**: Update the resource group name as **Azure-hpc**
@@ -193,18 +196,8 @@ An az-hop environment is defined by using a configuration file named **config.ym
 
 ### Task 2: Deploy Azure HPC OnDemand Platform infrastructure
 
-1. Within the SSH session, run the following command to generate a Terraform deployment plan that includes the listing of all resources to be provisioned:
 
-   ```bash
-   ./build.sh -a plan
-   ```
-  
-    >**Note:** In case you get an error while running the above command, run the command mentioned below and re-perform step-1.
-
-     ```bash
-     sudo su
-     ```
-1. If you get an error stating **Please run 'az login' to setup account.**, follow the below steps:
+1.  **Please run 'az login' to setup account.**, follow the below steps:
 
      - Run the below command to login into **Azure Portal**
 
@@ -221,7 +214,19 @@ An az-hop environment is defined by using a configuration file named **config.ym
      - On **Are you trying to sign in to Microsoft Azure CLI** page, click on **Continue** to sign in into Azure Portal.
 
         ![](../main/media/continue.png)
+        
+        
+2.1. Within the SSH session, run the following command to generate a Terraform deployment plan that includes the listing of all resources to be provisioned:
 
+   ```bash
+   ./build.sh -a plan
+   ```
+  
+    >**Note:** In case you get an error while running the above command, run the command mentioned below and re-perform step-1.
+
+     ```bash
+     sudo su
+     ```
 3. Review the generated list of resources and then run the following command to trigger the deployment of the Azure HPC OnDemand Platform infrastructure:
 
    ```bash
