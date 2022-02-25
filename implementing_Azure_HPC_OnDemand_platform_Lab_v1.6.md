@@ -100,9 +100,12 @@ To complete this lab, you must verify that your account has sufficient permissio
    * Password: <inject key="AzureAdUserPassword"></inject>
    
      ![](../main/media/password.png)
+     
+7. Search for Resource groups and select resource group named **Azure-hpc**     
 
+   ![](https://raw.githubusercontent.com/CloudLabsAI-Azure/Azure-HPC/main/media/rg-03.png)
 
-
+8. Search for Virtual network named **azcli-vnet**, save the region of Vnet in notepad.   
 ## Exercise 1: Prepare for implementing the Azure HPC OnDemand Platform environment
 
 Duration: 10 minutes
