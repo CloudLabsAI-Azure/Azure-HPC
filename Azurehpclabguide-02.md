@@ -33,9 +33,6 @@ In this exercise, you will install and configure Spack from Code Server, as docu
 
    > **Note**: You will be presented with the **Azure HPC On-Demand Platform** dashboard. Review its interface, starting with the top level menu, which provides access to **Apps**, **Files**, **Jobs**, **Clusters**, **Interactive Apps**, **Monitoring**, and **My Interactive Sessions** menu items.
 
-     ![](../main/media/ondemand%20signin.png)
-
-
 1. In the **Azure HPC On-Demand Platform** portal, select the **Interactive Apps** menu, and in the drop-down menu, select **Code Server**.
 
    > ![Note]: This will open another browser tab displaying the Code Server launching page.
