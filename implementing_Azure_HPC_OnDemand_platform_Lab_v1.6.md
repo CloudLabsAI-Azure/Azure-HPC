@@ -551,14 +551,14 @@ In this exercise, you will install and configure Spack from Code Server, as docu
 1. In the Terminal pane, run the following command to provision a compute node and connect to it interactively:
 
    ```bash
-   qsub -l select=1:slot_type=hb120v3 -I
+   qsub -l select=1:slot_type=hb120v2 -I
    ```
 
    > ![Note]: Wait for the node to be provisioned. This might take about 10 minutes.
 
 ### Task 2: Install Spack
 
-1. On the lab computer, in the browser window displaying the Code Server, wait until the prompt **[clusteradmin@hb120v3-1 ~]$** appears within the Terminal pane.
+1. On the lab computer, in the browser window displaying the Code Server, wait until the prompt **[clusteradmin@execute-1 ~]$** appears within the Terminal pane.
 1. In the Terminal pane, run the following commands to install and configure Spack:
 
    ```bash
@@ -569,7 +569,7 @@ In this exercise, you will install and configure Spack from Code Server, as docu
    > ![Note]: You should see an output that resembles the following listing:
 
    ```bash
-   [clusteradmin@hhb120v3-1 ~]$ ~/azurehpc/experimental/azhop/spack/install.sh
+   [clusteradmin@execute-x ~]$ ~/azurehpc/experimental/azhop/spack/install.sh
    Cloning into '/anfhome/clusteradmin/spack'...
    remote: Enumerating objects: 356062, done.
    remote: Counting objects: 100% (8/8), done.
@@ -581,7 +581,7 @@ In this exercise, you will install and configure Spack from Code Server, as docu
    Checking out files: 100% (8002/8002), done.
    Branch releases/v0.16 set up to track remote branch releases/v0.16 from origin.
    Switched to a new branch 'releases/v0.16'
-   [clusteradmin@hb120v3-1 ~]$ ~/azurehpc/experimental/azhop/spack/configure.sh
+   [clusteradmin@execute-x ~]$ ~/azurehpc/experimental/azhop/spack/configure.sh
    Add GCC compiler
    ==> Added 1 new compiler to /anfhome/clusteradmin/.spack/linux/compilers.yaml
        gcc@9.2.0
@@ -601,8 +601,8 @@ In this exercise, you will install and configure Spack from Code Server, as docu
    > ![Note]: You should see an output that resembles the following listing:
 
    ```bash
-   [clusteradmin@hb120v3-1 ~]$ . ~/spack/share/spack/setup-env.sh
-   [clusteradmin@hb120v3-1 ~]$ spack compilers
+   [clusteradmin@execute-x ~]$ . ~/spack/share/spack/setup-env.sh
+   [clusteradmin@execute-x ~]$ spack compilers
    ==> Available compilers
    -- gcc centos7-x86_64 -------------------------------------------
    gcc@9.2.0
@@ -759,7 +759,7 @@ Duration: 60 minutes
 
 ### Task 2: Retrieve test data and run a flow job
 
-1. On the lab computer, in the browser window displaying the Code Server, in the Terminal pane, from the prompt **[clusteradmin@hb120v3-1 ~]$**, run the following commands to download test data:
+1. On the lab computer, in the browser window displaying the Code Server, in the Terminal pane, from the prompt **[clusteradmin@execute-x ~]$**, run the following commands to download test data:
 
    ```bash
    cd /lustre
@@ -826,7 +826,7 @@ Duration: 60 minutes
    ```
    #!/bin/bash
    #PBS -N OPM
-   #PBS -l select=1:ncpus=120:mpiprocs=60:slot_type=hb120v3
+   #PBS -l select=1:ncpus=120:mpiprocs=60:slot_type=hb120v2
    #PBS -k oed
    #PBS -j oe
    #PBS -l walltime=3600
@@ -861,7 +861,7 @@ Duration: 60 minutes
    popd
    ```
 
-1. On the lab computer, in the browser window displaying the Code Server, in the Terminal pane, from the prompt **[clusteradmin@hb120v3-1 ~]$**, run the following command to submit the job referenced in the **~/run_opm.sh** file:
+1. On the lab computer, in the browser window displaying the Code Server, in the Terminal pane, from the prompt **[clusteradmin@execute-x ~]$**, run the following command to submit the job referenced in the **~/run_opm.sh** file:
 
    ```bash
    qsub ~/run_opm.sh 
@@ -876,9 +876,9 @@ Duration: 60 minutes
    > ![Note]: You should see an output that resembles the following listing:
 
    ```bash
-   [clusteradmin@hb120v3-1 clusteradmin]$ qsub ~/run_opm.sh
+   [clusteradmin@execute-x clusteradmin]$ qsub ~/run_opm.sh
    8.scheduler
-   [clusteradmin@hb120v3-1 clusteradmin]$ qstat
+   [clusteradmin@execute-x clusteradmin]$ qstat
    Job id            Name             User              Time Use S Queue
    ----------------  ---------------- ----------------  -------- - -----
    6.scheduler       sys-dashboard-s  clusteradmin      00:00:17 R workq           
@@ -897,10 +897,10 @@ Duration: 60 minutes
    > ![Note]: You should see an output that starts with the following listing:
 
    ```bash
-   [clusteradmin@hb120v3-1 clusteradmin]$ qstat -fx 8.scheduler
+   [clusteradmin@execute-x clusteradmin]$ qstat -fx 8.scheduler
    Job Id: 8.scheduler
        Job_Name = OPM
-       Job_Owner = clusteradmin@hb120v3-1.internal.cloudapp.net
+       Job_Owner = clusteradmin@hb120v2-1.internal.cloudapp.net
        resources_used.cpupercent = 1635
        resources_used.cput = 00:45:00
        resources_used.mem = 29380680kb
@@ -912,15 +912,15 @@ Duration: 60 minutes
        server = scheduler
        Checkpoint = u
        ctime = Tue Feb 22 18:26:47 2022
-       Error_Path = hb120v3-1.internal.cloudapp.net:/lustre/clusteradmin/OPM.e8
-       exec_host = hb120v3-2/0*120
-       exec_vnode = (hb120v3-2:ncpus=120)
+       Error_Path = hb120v2-1.internal.cloudapp.net:/lustre/clusteradmin/OPM.e8
+       exec_host = hb120v2-2/0*120
+       exec_vnode = (hb120v2-2:ncpus=120)
        Hold_Types = n
        Join_Path = oe
        Keep_Files = oed
        Mail_Points = a
        mtime = Tue Feb 22 18:36:42 2022
-       Output_Path = hb120v3-1.internal.cloudapp.net:/lustre/clusteradmin/OPM.o8
+       Output_Path = hb120v2-1.internal.cloudapp.net:/lustre/clusteradmin/OPM.o8
        Priority = 0
        qtime = Tue Feb 22 18:26:47 2022
        Rerunable = True
@@ -928,7 +928,7 @@ Duration: 60 minutes
        Resource_List.ncpus = 120
        Resource_List.nodect = 1
        Resource_List.place = scatter:excl
-       Resource_List.select = 1:ncpus=120:mpiprocs=60:slot_type=hb120v3
+       Resource_List.select = 1:ncpus=120:mpiprocs=60:slot_type=hb120v2
        Resource_List.slot_type = execute
        Resource_List.ungrouped = false
        Resource_List.walltime = 01:00:00
@@ -943,7 +943,7 @@ Duration: 60 minutes
            .local/bin:/anfhome/clusteradmin/bin,
            PBS_O_MAIL=/var/spool/mail/clusteradmin,PBS_O_SHELL=/bin/bash,
            PBS_O_WORKDIR=/lustre/clusteradmin,PBS_O_SYSTEM=Linux,
-           PBS_O_QUEUE=workq,PBS_O_HOST=hb120v3-1.internal.cloudapp.net
+           PBS_O_QUEUE=workq,PBS_O_HOST=hb120v2-1.internal.cloudapp.net
        comment = Not Running: Not enough free nodes available
        etime = Tue Feb 22 18:26:47 2022
        run_count = 1
@@ -956,7 +956,7 @@ Duration: 60 minutes
 
    > ![Note]: Wait for the job to complete. This might take about 5 minutes.
 
-   > ![Note]: To verify the completion of the job, you can rerun the `qstat` command or the `qstat -fx <jobid>` command. The latter, should display the comment in the format `comment = Job run at Tue Feb 22 at 18:40 on (hb120v3-2:ncpus=120) and finished`
+   > ![Note]: To verify the completion of the job, you can rerun the `qstat` command or the `qstat -fx <jobid>` command. The latter, should display the comment in the format `comment = Job run at Tue Feb 22 at 18:40 on (hb120v2-2:ncpus=120) and finished`
 
 1. Run the following command to verify that the job has generated the expected output:
 
@@ -969,7 +969,7 @@ Duration: 60 minutes
    > ![Note]: You should see an output that resembles the following listing:
 
    ```bash
-   [clusteradmin@hb120v3-1 clusteradmin]$ ls /lustre/clusteradmin/opm-data/norne/out_parallel/
+   [clusteradmin@execute-x clusteradmin]$ ls /lustre/clusteradmin/opm-data/norne/out_parallel/
    NORNE_ATW2013.EGRID     NORNE_ATW2013.INIT  NORNE_ATW2013.SMSPEC  NORNE_ATW2013.UNSMRY
    NORNE_ATW2013.INFOSTEP  NORNE_ATW2013.RFT   NORNE_ATW2013.UNRST
    ```
