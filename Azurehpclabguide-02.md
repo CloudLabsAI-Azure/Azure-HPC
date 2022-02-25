@@ -489,39 +489,16 @@ Duration: 60 minutes
 
 1. Within the Remote Desktop session, start **Terminal Emulator**.
 
-   > ![Note]: ResInsight installation instructions are available at (https://resinsight.org/getting-started/download-and-install/linux-installation/)[https://resinsight.org/getting-started/download-and-install/linux-installation/]
-
-1. In the **Terminal Emulator** window, at the **[clusteradmin@vis-1 ~]$** prompt, run the following commands to sudo to root:
+1. In the **Terminal Emulator** window, at the **[clusteruserX@vis-X ~]$** prompt, run the following command to launch ResInsight:
 
    ```bash
-   sudo su -
-   ```
-
-1. In the **Terminal Emulator** window, use the vi editor to open the **/etc/yum.conf** file, add a new line with the `sslverify=0` entry, save the change, and close the file.
-
-   > ![Note]: This is necessary in order to prevent the **Peer's Certificate issuer is not recognized** error message when downloading the ResInsight package.
-
-1. In the **Terminal Emulator** window, at the **[clusteradmin@vis-1 ~]$** prompt, run the following command to install the ResInsight package:
-
-   ```bash
-   yum-config-manager --add-repo https://opm-project.org/package/opm.repo
-   yum install resinsight -y
-   yum install resinsight-octave -y
-   ```
-
-1. In the **Terminal Emulator** window, at the **[clusteradmin@vis-1 ~]$** prompt, run the following command to launch ResInsight:
-
-   ```bash
-   exit
-   vglrun ResInsight
+   ResInsight
    ```
 
    > ![Note]: This will open the ResInsight application window.
 
-   > ![Note]: In case you are using a non-GPU VM SKU, rather than running `vglrun ResInsight`, in the **Remote Desktop** session, select **Application Finder** (the magnifying glass icon at the bottom center section of the page), in the search text box, type **ResInsight**, in the list of search results, select **ResInsight**, and then select **Launch**.
-
 1. In the ResInsight application window, select the **File** menu header, in the drop-down menu, select **Import**, in the cascading menu, select **Eclipse cases** and then select **Import Eclipse cases**.
-1. In the **Import Eclipse File** dialog box, select **Computer**, then navigate to **/lustre/clusteradmin/opm-data/norne/out_parallel** and, in the list of files in the target directory, select **NORNE_ATW2013.EGRID**.
+1. In the **Import Eclipse File** dialog box, select **Computer**, then navigate to **/lustre/clusteruserX/opm-data/norne/out_parallel** and, in the list of files in the target directory, select **NORNE_ATW2013.EGRID**.
 1. Review the case in the ResInsight application window.
 
 
