@@ -774,7 +774,7 @@ Duration: 60 minutes
    cp ~/azurehpc/experimental/azhop/opm/run_opm.sh ~
    ```
 
-1. On the lab computer, in the browser window displaying the Code Server, in the Terminal pane, from the prompt **[clusteradmin@hb120v3-1 ~]$**, open the newly created copy of the **run_opm.sh** file in a text editor, make the following changes, and close it saving the changes:
+1. On the lab computer, in the browser window displaying the Code Server, in the Terminal pane, from the prompt **[clusteradmin@execute-x ~]$**, open the newly created copy of the **run_opm.sh** file in a text editor, make the following changes, and close it saving the changes:
 
    - modify the input file path (`INPUT`) by replacing the entry `~/opm-data/norne` with `/lustre/clusteradmin/opm-data/norne`)
    - modify the compute node configuration by replacing the entry `select=1:ncpus=40:mpiprocs=40:slot_type=hc44rs` with `select=1:ncpus=120:mpiprocs=60:slot_type=hb120v2`
