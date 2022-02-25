@@ -224,27 +224,38 @@ Duration: 60 minutes
        buildable: False
    ```
 
-1. Run the following command to initialize the OPM build:
+1. Run the following command to queue the OPM build using terminal in codeserver:
 
    ```bash
-   ~/azurehpc/experimental/azhop/opm/build.sh
+   [clusteruserX@execute-X ~]$ cp ~/azurehpc/experimental/azhop/opm/build.sh ~/build_opm.sh
    ```
-
-   > ![Note]: You should see an output that starts with the following listing:
-
-   ```bash
-   [clusteruserX@execute-X ~]$ ~/azurehpc/experimental/azhop/opm/build.sh
-   ==> Warning: Missing a source id for openmpi@4.1.0
-   ==> Warning: Missing a source id for dune@2.7
-   ==> Installing pkg-config-0.29.2-opt4cajmlefjsbaqmhcuxegkkdr6gvac
-   ==> No binary for pkg-config-0.29.2-opt4cajmlefjsbaqmhcuxegkkdr6gvac found: installing from source
-   ==> Fetching https://mirror.spack.io/_source-cache/archive/6f/6fc69c01688c9458a57eb9a1664c9aba372ccda420a02bf4429fe610e7e7d591.tar.gz
-   ######################################################################## 100.0%
-   ==> pkg-config: Executing phase: 'autoreconf'
-   ==> pkg-config: Executing phase: 'configure'
+   Edit build_opm.sh using codeserver, Add | tee xxx like this
+   
    ```
-
+   spack install dune | tee ~/dune.log
+   spack install opm-simulators | tee ~/opm-simulators.log
+   ```
+   Submit the job by running the below command for building OPM :
+   
+   ```
+   qsub -l select=1:ncpus=120:slot_type=hb120v2 ~/build_opm.sh
+   ```
+   Please make sure you are getting the below output :
+   
+   ```
+   XX.scheduler
+   ```
+   
+   Run the below command to check the job status :
+   
+   ```
+   qstat -fx XX
+   ```
    > ![Note]: Wait for the build to complete. This might take about 30 minutes.
+   
+   > ![Note]: While the job is running check the logs from files dune.log and opm-simulators.log
+  
+   > ![Note]: To verify the completion of the job, you can rerun the qstat command or the qstat -fx <jobid> command. The latter, should display the comment in the format comment = Job run at Tue Feb 22 at 18:40 on (hb120v2-X:ncpus=120) and finished
 
 ### Task 2: Retrieve test data and run a flow job
 
@@ -389,7 +400,7 @@ Duration: 60 minutes
    [clusteruserX@execute-X clusteruserX]$ qstat -fx 8.scheduler
    Job Id: 8.scheduler
        Job_Name = OPM
-       Job_Owner = clusteradmin@hb120v3-1.internal.cloudapp.net
+       Job_Owner = clusteradmin@hb120v2-X.internal.cloudapp.net
        resources_used.cpupercent = 1635
        resources_used.cput = 00:45:00
        resources_used.mem = 29380680kb
