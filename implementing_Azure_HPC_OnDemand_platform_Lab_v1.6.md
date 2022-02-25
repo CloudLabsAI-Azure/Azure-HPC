@@ -978,30 +978,9 @@ Duration: 60 minutes
 
 1. Within the Remote Desktop session, start **Terminal Emulator**.
 
-   > ![Note]: ResInsight installation instructions are available at (https://resinsight.org/getting-started/download-and-install/linux-installation/)[https://resinsight.org/getting-started/download-and-install/linux-installation/]
-
-1. In the **Terminal Emulator** window, at the **[clusteradmin@vis-1 ~]$** prompt, run the following commands to sudo to root:
-
-   ```bash
-   sudo su -
-   ```
-
-1. In the **Terminal Emulator** window, use the vi editor to open the **/etc/yum.conf** file, add a new line with the `sslverify=0` entry, save the change, and close the file.
-
-   > ![Note]: This is necessary in order to prevent the **Peer's Certificate issuer is not recognized** error message when downloading the ResInsight package.
-
-1. In the **Terminal Emulator** window, at the **[clusteradmin@vis-1 ~]$** prompt, run the following command to install the ResInsight package:
-
-   ```bash
-   yum-config-manager --add-repo https://opm-project.org/package/opm.repo
-   yum install resinsight -y
-   yum install resinsight-octave -y
-   ```
-
 1. In the **Terminal Emulator** window, at the **[clusteradmin@vis-1 ~]$** prompt, run the following command to launch ResInsight:
 
    ```bash
-   exit
    vglrun ResInsight
    ```
 
