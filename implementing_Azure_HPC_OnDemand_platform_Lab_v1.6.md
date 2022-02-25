@@ -105,7 +105,10 @@ To complete this lab, you must verify that your account has sufficient permissio
 
    ![](https://raw.githubusercontent.com/CloudLabsAI-Azure/Azure-HPC/main/media/rg-03.png)
 
-8. Search for Virtual network named **azcli-vnet**, save the region of Vnet in notepad.   
+8. Search for Virtual network named **azcli-vnet**, save the region of Vnet in notepad. We will be using region name in next Exercise.
+
+   ![](https://raw.githubusercontent.com/CloudLabsAI-Azure/Azure-HPC/main/media/rg-04.png)
+   
 ## Exercise 1: Prepare for implementing the Azure HPC OnDemand Platform environment
 
 Duration: 10 minutes
