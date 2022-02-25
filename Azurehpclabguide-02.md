@@ -276,7 +276,7 @@ Duration: 60 minutes
 
 1. In the browser window displaying the Code Server, in the Terminal pane, from the prompt **[clusteruserX@execute-X ~]$**, open the newly created copy of the **run_opm.sh** file in a text editor, make the following changes, and close it saving the changes:
 
-   - modify the input file path (`INPUT`) by replacing the entry `~/opm-data/norne` with `/lustre/clusteradmin/opm-data/norne`)
+   - modify the input file path (`INPUT`) by replacing the entry `~/opm-data/norne` with `/lustre/$USER/opm-data/norne`)
    - modify the compute node configuration by replacing the entry `select=1:ncpus=40:mpiprocs=40:slot_type=hc44rs` with `select=1:ncpus=120:mpiprocs=60:slot_type=hb120v2`
    - add the `which flow` line following the `spack load opm-simulators` line.
 
@@ -331,7 +331,7 @@ Duration: 60 minutes
    #PBS -j oe
    #PBS -l walltime=3600
 
-   INPUT=/lustre/clusteradmin/opm-data/norne/NORNE_ATW2013.DATA
+   INPUT=/lustre/$USER/opm-data/norne/NORNE_ATW2013.DATA
    INPUT_DIR=${INPUT%/*}
    INPUT_FILE=${INPUT##*/}
    NUM_THREADS=1
