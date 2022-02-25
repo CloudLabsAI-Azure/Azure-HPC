@@ -549,6 +549,60 @@ In this exercise, you will install and configure Spack from Code Server, as docu
    git clone https://github.com/Azure/azurehpc.git
    ```
 
+### Task 2: Install Spack
+
+1. In the browser window displaying the Code Server, wait until the prompt **[clusteradmin@execute-X ~]$** appears within the Terminal pane.
+1. In the Terminal pane, run the following commands to install and configure Spack:
+
+   ```bash
+   ~/azurehpc/experimental/azhop/spack/install.sh
+   ~/azurehpc/experimental/azhop/spack/configure.sh
+   ```
+
+   > ![Note]: You should see an output that resembles the following listing:
+
+   ```bash
+   [clusteradmin@execute-X ~]$ ~/azurehpc/experimental/azhop/spack/install.sh
+   Cloning into '/anfhome/clusteradmin/spack'...
+   remote: Enumerating objects: 356062, done.
+   remote: Counting objects: 100% (8/8), done.
+   remote: Compressing objects: 100% (7/7), done.
+   remote: Total 356062 (delta 0), reused 5 (delta 0), pack-reused 356054
+   Receiving objects: 100% (356062/356062), 161.30 MiB | 20.68 MiB/s, done.
+   Resolving deltas: 100% (151608/151608), done.
+   Checking out files: 100% (9104/9104), done.
+   Checking out files: 100% (8002/8002), done.
+   Branch releases/v0.16 set up to track remote branch releases/v0.16 from origin.
+   Switched to a new branch 'releases/v0.16'
+   [clusteruserX@execute-X ~]$ ~/azurehpc/experimental/azhop/spack/configure.sh
+   Add GCC compiler
+   ==> Added 1 new compiler to /anfhome/clusteradmin/.spack/linux/compilers.yaml
+       gcc@9.2.0
+   ==> Compilers are defined in the following files:
+       /anfhome/clusteruserX/.spack/linux/compilers.yaml
+   Configure external MPI packages
+   Configure local settings
+   ```
+
+1. In the Terminal pane, run the following commands to confirm the list of defined compilers:
+
+   ```bash
+   . ~/spack/share/spack/setup-env.sh
+   spack compilers
+   ```
+
+   > ![Note]: You should see an output that resembles the following listing:
+
+   ```bash
+   [clusteradmin@execute-X ~]$ . ~/spack/share/spack/setup-env.sh
+   [clusteradmin@execute-X ~]$ spack compilers
+   ==> Available compilers
+   -- gcc centos7-x86_64 -------------------------------------------
+   gcc@9.2.0
+   ```
+
+   > ![Note]: Verify that gcc 9.2 is listed.
+
 ## Exercise 6: Build, run, and analyze reservoir simulation using OPM Flow
 
 In this exercise, you will build, run, and analyze reservoir simulation using OPM (Open Porous Media Initiative) Flow 
