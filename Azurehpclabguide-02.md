@@ -50,23 +50,15 @@ In this exercise, you will install and configure Spack from Code Server, as docu
    > ![Note]: This will open another browser tab displaying the Code Server interface.
 
 1. Review the interface, close the **Welcome** tab, select the **Application menu** in the top left corner of the page, in the drop-down menu, select **Terminal** and then, in the cascading menu, select **New Terminal**.
-1. In the Terminal pane, at the **[clusteradmin@execute-1 ~]$** prompt, run the following command to clone the azurehpc repo and use the azhop/spack branch:
+1. In the Terminal pane, at the **[clusteruserX@execute-X ~]$** prompt, run the following command to clone the azurehpc repo and use the azhop/spack branch:
 
    ```bash
    git clone https://github.com/Azure/azurehpc.git
    ```
 
-1. In the Terminal pane, run the following command to provision a compute node and connect to it interactively:
-
-   ```bash
-   qsub -l select=1:slot_type=hb120v3 -I
-   ```
-
-   > ![Note]: Wait for the node to be provisioned. This might take about 10 minutes.
-
 ### Task 2: Install Spack
 
-1. In the browser window displaying the Code Server, wait until the prompt **[clusteradmin@hb120v3-1 ~]$** appears within the Terminal pane.
+1. In the browser window displaying the Code Server, wait until the prompt **[clusteruserX@execute-X ~]$** appears within the Terminal pane.
 1. In the Terminal pane, run the following commands to install and configure Spack:
 
    ```bash
@@ -77,8 +69,8 @@ In this exercise, you will install and configure Spack from Code Server, as docu
    > ![Note]: You should see an output that resembles the following listing:
 
    ```bash
-   [clusteradmin@hhb120v3-1 ~]$ ~/azurehpc/experimental/azhop/spack/install.sh
-   Cloning into '/anfhome/clusteradmin/spack'...
+   [clusteruserX@execute-X ~]$ ~/azurehpc/experimental/azhop/spack/install.sh
+   Cloning into '/anfhome/clusteruserX/spack'...
    remote: Enumerating objects: 356062, done.
    remote: Counting objects: 100% (8/8), done.
    remote: Compressing objects: 100% (7/7), done.
@@ -89,12 +81,12 @@ In this exercise, you will install and configure Spack from Code Server, as docu
    Checking out files: 100% (8002/8002), done.
    Branch releases/v0.16 set up to track remote branch releases/v0.16 from origin.
    Switched to a new branch 'releases/v0.16'
-   [clusteradmin@hb120v3-1 ~]$ ~/azurehpc/experimental/azhop/spack/configure.sh
+   [clusteruserX@execute-X ~]$ ~/azurehpc/experimental/azhop/spack/configure.sh
    Add GCC compiler
    ==> Added 1 new compiler to /anfhome/clusteradmin/.spack/linux/compilers.yaml
        gcc@9.2.0
    ==> Compilers are defined in the following files:
-       /anfhome/clusteradmin/.spack/linux/compilers.yaml
+       /anfhome/clusteruserX/.spack/linux/compilers.yaml
    Configure external MPI packages
    Configure local settings
    ```
@@ -109,8 +101,8 @@ In this exercise, you will install and configure Spack from Code Server, as docu
    > ![Note]: You should see an output that resembles the following listing:
 
    ```bash
-   [clusteradmin@hb120v3-1 ~]$ . ~/spack/share/spack/setup-env.sh
-   [clusteradmin@hb120v3-1 ~]$ spack compilers
+   [clusteruserX@execute-X ~]$ . ~/spack/share/spack/setup-env.sh
+   [clusteruserX@execute-X ~]$ spack compilers
    ==> Available compilers
    -- gcc centos7-x86_64 -------------------------------------------
    gcc@9.2.0
@@ -126,7 +118,7 @@ Duration: 60 minutes
 
 ### Task 1: Build OPM
 
-1. In the browser window displaying the Code Server, in the Terminal pane, from the prompt **[clusteradmin@hb120v3-1 ~]$**, run the following command to load Spack modules
+1. In the browser window displaying the Code Server, in the Terminal pane, from the prompt **[clusteruserX@execute-X ~]$**, run the following command to load Spack modules
 
    ```bash
    module use /usr/share/Modules/modulefiles
@@ -153,7 +145,7 @@ Duration: 60 minutes
    > ![Note]: You should see an output that resembles the following listing:
 
    ```bash
-   [clusteradmin@hb120v3-1 ~]$ ~/azurehpc/experimental/azhop/opm/configure.sh
+   [clusteruserX@execute-X ~]$ ~/azurehpc/experimental/azhop/opm/configure.sh
    Cloning into 'dune-spack'...
    remote: Enumerating objects: 357, done.
    remote: Total 357 (delta 0), reused 0 (delta 0), pack-reused 357
@@ -172,7 +164,7 @@ Duration: 60 minutes
    > ![Note]: You should see an output that resembles the following listing:
 
    ```bash
-   [clusteradmin@hb120v3-1 .spack]$ module avail
+   [clusteruserX@execute-X .spack]$ module avail
 
    ---------------------------------------- /usr/share/Modules/modulefiles ----------------------------------------
       amd/aocl              module-git         mpi/hpcx               mpi/impi-2021         mpi/openmpi-4.1.0 (D)
@@ -241,7 +233,7 @@ Duration: 60 minutes
    > ![Note]: You should see an output that starts with the following listing:
 
    ```bash
-   [clusteradmin@hb120v3-1 ~]$ ~/azurehpc/experimental/azhop/opm/build.sh
+   [clusteruserX@execute-X ~]$ ~/azurehpc/experimental/azhop/opm/build.sh
    ==> Warning: Missing a source id for openmpi@4.1.0
    ==> Warning: Missing a source id for dune@2.7
    ==> Installing pkg-config-0.29.2-opt4cajmlefjsbaqmhcuxegkkdr6gvac
@@ -256,12 +248,12 @@ Duration: 60 minutes
 
 ### Task 2: Retrieve test data and run a flow job
 
-1. In the browser window displaying the Code Server, in the Terminal pane, from the prompt **[clusteradmin@hb120v3-1 ~]$**, run the following commands to download test data:
+1. In the browser window displaying the Code Server, in the Terminal pane, from the prompt **[clusteruserX@execute-X ~]$**, run the following commands to download test data:
 
    ```bash
    cd /lustre
-   mkdir clusteradmin
-   cd clusteradmin
+   mkdir $USER
+   cd $USER
    git clone https://github.com/OPM/opm-data.git
    ```
 
@@ -271,7 +263,7 @@ Duration: 60 minutes
    cp ~/azurehpc/experimental/azhop/opm/run_opm.sh ~
    ```
 
-1. In the browser window displaying the Code Server, in the Terminal pane, from the prompt **[clusteradmin@hb120v3-1 ~]$**, open the newly created copy of the **run_opm.sh** file in a text editor, make the following changes, and close it saving the changes:
+1. In the browser window displaying the Code Server, in the Terminal pane, from the prompt **[clusteruserX@execute-X ~]$**, open the newly created copy of the **run_opm.sh** file in a text editor, make the following changes, and close it saving the changes:
 
    - modify the input file path (`INPUT`) by replacing the entry `~/opm-data/norne` with `/lustre/clusteradmin/opm-data/norne`)
    - modify the compute node configuration by replacing the entry `select=1:ncpus=40:mpiprocs=40:slot_type=hc44rs` with `select=1:ncpus=120:mpiprocs=60:slot_type=hb120v2`
@@ -323,7 +315,7 @@ Duration: 60 minutes
    ```
    #!/bin/bash
    #PBS -N OPM
-   #PBS -l select=1:ncpus=120:mpiprocs=60:slot_type=hb120v3
+   #PBS -l select=1:ncpus=120:mpiprocs=60:slot_type=hb120v2
    #PBS -k oed
    #PBS -j oe
    #PBS -l walltime=3600
@@ -358,7 +350,7 @@ Duration: 60 minutes
    popd
    ```
 
-1. In the browser window displaying the Code Server, in the Terminal pane, from the prompt **[clusteradmin@hb120v3-1 ~]$**, run the following command to submit the job referenced in the **~/run_opm.sh** file:
+1. In the browser window displaying the Code Server, in the Terminal pane, from the prompt **[clusteruserX@execute-X ~]$**, run the following command to submit the job referenced in the **~/run_opm.sh** file:
 
    ```bash
    qsub ~/run_opm.sh 
@@ -373,9 +365,9 @@ Duration: 60 minutes
    > ![Note]: You should see an output that resembles the following listing:
 
    ```bash
-   [clusteradmin@hb120v3-1 clusteradmin]$ qsub ~/run_opm.sh
+   [clusteruserX@execute-X clusteruserX]$ qsub ~/run_opm.sh
    8.scheduler
-   [clusteradmin@hb120v3-1 clusteradmin]$ qstat
+   [clusteruserX@execute-X clusteruserX]$ qstat
    Job id            Name             User              Time Use S Queue
    ----------------  ---------------- ----------------  -------- - -----
    6.scheduler       sys-dashboard-s  clusteradmin      00:00:17 R workq           
@@ -394,7 +386,7 @@ Duration: 60 minutes
    > ![Note]: You should see an output that starts with the following listing:
 
    ```bash
-   [clusteradmin@hb120v3-1 clusteradmin]$ qstat -fx 8.scheduler
+   [clusteruserX@execute-X clusteruserX]$ qstat -fx 8.scheduler
    Job Id: 8.scheduler
        Job_Name = OPM
        Job_Owner = clusteradmin@hb120v3-1.internal.cloudapp.net
@@ -409,15 +401,15 @@ Duration: 60 minutes
        server = scheduler
        Checkpoint = u
        ctime = Tue Feb 22 18:26:47 2022
-       Error_Path = hb120v3-1.internal.cloudapp.net:/lustre/clusteradmin/OPM.e8
-       exec_host = hb120v3-2/0*120
-       exec_vnode = (hb120v3-2:ncpus=120)
+       Error_Path = hb120v2-1.internal.cloudapp.net:/lustre/clusteruserX/OPM.e8
+       exec_host = hb120v2-2/0*120
+       exec_vnode = (hb120v2-2:ncpus=120)
        Hold_Types = n
        Join_Path = oe
        Keep_Files = oed
        Mail_Points = a
        mtime = Tue Feb 22 18:36:42 2022
-       Output_Path = hb120v3-1.internal.cloudapp.net:/lustre/clusteradmin/OPM.o8
+       Output_Path = hb120v2-1.internal.cloudapp.net:/lustre/clusteruserX/OPM.o8
        Priority = 0
        qtime = Tue Feb 22 18:26:47 2022
        Rerunable = True
@@ -425,28 +417,28 @@ Duration: 60 minutes
        Resource_List.ncpus = 120
        Resource_List.nodect = 1
        Resource_List.place = scatter:excl
-       Resource_List.select = 1:ncpus=120:mpiprocs=60:slot_type=hb120v3
+       Resource_List.select = 1:ncpus=120:mpiprocs=60:slot_type=hb120v2
        Resource_List.slot_type = execute
        Resource_List.ungrouped = false
        Resource_List.walltime = 01:00:00
        stime = Tue Feb 22 18:35:47 2022
        session_id = 12364
-       jobdir = /anfhome/clusteradmin
+       jobdir = /anfhome/clusteruserX
        substate = 92
-       Variable_List = PBS_O_HOME=/anfhome/clusteradmin,PBS_O_LANG=en_US.UTF-8,
-           PBS_O_LOGNAME=clusteradmin,
-           PBS_O_PATH=/anfhome/clusteradmin/spack/bin:/bin:/usr/bin:/usr/local/sb
-           in:/usr/sbin:/opt/cycle/jetpack/bin:/opt/pbs/bin:/anfhome/clusteradmin/
-           .local/bin:/anfhome/clusteradmin/bin,
-           PBS_O_MAIL=/var/spool/mail/clusteradmin,PBS_O_SHELL=/bin/bash,
-           PBS_O_WORKDIR=/lustre/clusteradmin,PBS_O_SYSTEM=Linux,
+       Variable_List = PBS_O_HOME=/anfhome/clusteruserX,PBS_O_LANG=en_US.UTF-8,
+           PBS_O_LOGNAME=clusteruserX,
+           PBS_O_PATH=/anfhome/clusteruserX/spack/bin:/bin:/usr/bin:/usr/local/sb
+           in:/usr/sbin:/opt/cycle/jetpack/bin:/opt/pbs/bin:/anfhome/clusteruserX/
+           .local/bin:/anfhome/clusteruserX/bin,
+           PBS_O_MAIL=/var/spool/mail/clusteruserX,PBS_O_SHELL=/bin/bash,
+           PBS_O_WORKDIR=/lustre/clusteruserX,PBS_O_SYSTEM=Linux,
            PBS_O_QUEUE=workq,PBS_O_HOST=hb120v3-1.internal.cloudapp.net
        comment = Not Running: Not enough free nodes available
        etime = Tue Feb 22 18:26:47 2022
        run_count = 1
        Stageout_status = 1
        Exit_status = 0
-       Submit_arguments = /anfhome/clusteradmin/run_opm.sh
+       Submit_arguments = /anfhome/clusteruserX/run_opm.sh
        history_timestamp = 1645555002
        project = _pbs_project_default
    ```
@@ -458,7 +450,7 @@ Duration: 60 minutes
 1. Run the following command to verify that the job has generated the expected output:
 
    ```bash
-   ls /lustre/clusteradmin/opm-data/norne/out_parallel/
+   ls /lustre/clusteruserX/opm-data/norne/out_parallel/
    ```
 
    > ![Note]: Alternatively, you can review the content of the corresponding the job-related `~/OPM.*` file
@@ -466,7 +458,7 @@ Duration: 60 minutes
    > ![Note]: You should see an output that resembles the following listing:
 
    ```bash
-   [clusteradmin@hb120v3-1 clusteradmin]$ ls /lustre/clusteradmin/opm-data/norne/out_parallel/
+   [clusteruserX@execute-X clusteruserX]$ ls /lustre/clusteruserX/opm-data/norne/out_parallel/
    NORNE_ATW2013.EGRID     NORNE_ATW2013.INIT  NORNE_ATW2013.SMSPEC  NORNE_ATW2013.UNSMRY
    NORNE_ATW2013.INFOSTEP  NORNE_ATW2013.RFT   NORNE_ATW2013.UNRST
    ```
@@ -521,18 +513,5 @@ Duration: 60 minutes
 1. In the **Import Eclipse File** dialog box, select **Computer**, then navigate to **/lustre/clusteradmin/opm-data/norne/out_parallel** and, in the list of files in the target directory, select **NORNE_ATW2013.EGRID**.
 1. Review the case in the ResInsight application window.
 
-## Exercise 7: Deprovision Azure HPC OnDemand Platform environment
-
-Duration: 30 minutes
-
-In this exercise, you will deprovision the Azure HPC OnDemand Platform lab environment.
-
-### Task 1: Terminate the cluster
-
-1. In the browser window, navigate to the **Azure CycleCloud for Azure HPC On-Demand Platform** portal.
-1. On the **pbs1** page, select **Terminate** and, when prompted for confirmation, select **OK**.
-1. Monitor the progress of terminating the cluster.
-
-   > ![Note]: Ensure that all nodes and scaleset are deleted before you proceed to the next step.
 
 
