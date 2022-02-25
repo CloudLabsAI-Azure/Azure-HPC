@@ -443,7 +443,7 @@ Duration: 60 minutes
            .local/bin:/anfhome/clusteruserX/bin,
            PBS_O_MAIL=/var/spool/mail/clusteruserX,PBS_O_SHELL=/bin/bash,
            PBS_O_WORKDIR=/lustre/clusteruserX,PBS_O_SYSTEM=Linux,
-           PBS_O_QUEUE=workq,PBS_O_HOST=hb120v3-1.internal.cloudapp.net
+           PBS_O_QUEUE=workq,PBS_O_HOST=hb120v2-X.internal.cloudapp.net
        comment = Not Running: Not enough free nodes available
        etime = Tue Feb 22 18:26:47 2022
        run_count = 1
@@ -456,7 +456,7 @@ Duration: 60 minutes
 
    > ![Note]: Wait for the job to complete. This might take about 5 minutes.
 
-   > ![Note]: To verify the completion of the job, you can rerun the `qstat` command or the `qstat -fx <jobid>` command. The latter, should display the comment in the format `comment = Job run at Tue Feb 22 at 18:40 on (hb120v3-2:ncpus=120) and finished`
+   > ![Note]: To verify the completion of the job, you can rerun the `qstat` command or the `qstat -fx <jobid>` command. The latter, should display the comment in the format `comment = Job run at Tue Feb 22 at 18:40 on (hb120v2-X:ncpus=120) and finished`
 
 1. Run the following command to verify that the job has generated the expected output:
 
