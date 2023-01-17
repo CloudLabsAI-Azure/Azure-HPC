@@ -4,12 +4,8 @@
     "Language": "English",
     "Files": [
       {
-        "RawFilePath": "https://raw.githubusercontent.com/Azure/az-hop/tutorials/docs/tutorials/Implementing_Azure_HPC_OnDemand_Platform_Lab_1.md",
+        "RawFilePath": "https://raw.githubusercontent.com/Azure/az-hop/main/docs/tutorials/Implementing_Azure_HPC_OnDemand_Platform.md",
         "Order": 1
-      },
-      {
-        "RawFilePath": "https://raw.githubusercontent.com/Azure/az-hop/tutorials/docs/tutorials/Implementing_Azure_HPC_OnDemand_Platform_Lab_2.md",
-        "Order": 2
       }
     ]
   }
